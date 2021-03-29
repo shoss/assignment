@@ -8,20 +8,20 @@ import java.util.List;
 public class DataOutput {
 
 	// Standard Output
-	public void jsonStdOut(List<User> users) {
-		users.stream().forEach(user -> {
-			System.out.println(user.cutComment().toString());
+	public void stdOut(List<Data> datas) {
+		datas.stream().forEach(data -> {
+			System.out.println(data.toString());
 		});
 	}
 	
 	// File Output
-	public void jsonFileOut(String path, List<User> users) {
+	public void fileOut(List<? extends Data> datas, String path) {
 		File file = new File(path);
 		try {
 			FileWriter fw = new FileWriter(file);
-			users.stream().forEach(user -> {
+			datas.stream().forEach(data -> {
 				try {
-					fw.write(user.cutComment().toString());
+					fw.write(data.output());
 				} catch (IOException e) {
 					// TODO 自動生成された catch ブロック
 					e.printStackTrace();
