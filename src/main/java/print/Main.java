@@ -22,7 +22,6 @@ public class Main {
 		List<User> users = dacvt.jsonToUserList(Paths.get((input))); 
 		
 		// Write User's Name & Comment
-//		daopt.jsonStdOut(users);
 		daopt.fileOut(users, output);
 	}
 }
